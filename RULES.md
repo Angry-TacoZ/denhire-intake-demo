@@ -198,7 +198,7 @@ At the end of each task, report what changed, what was inspected, what related s
 
 ## Denhire Project Scope
 
-- Read `docs/PROJECT_BRIEF.md` before product implementation. James reports that the current site accepts submissions through a mailto link and has pitched a broader intake vision; details will follow this bootstrap.
+- Read `docs/PROJECT_BRIEF.md` before product implementation. The current site prepares an email for the visitor to send. James supplied the broader intake architecture; the current deliverable is a public, fictional-data interactive demo, not a live intake service.
 - Do not invent submission types, actors, intake channels, review rules, integrations, automation, or a deployment target before James supplies his proposal.
 - Before selecting technologies, offer James at least two suitable options with project-specific pros and cons, ask his opinion, and wait for his answer. Ask planning questions one at a time.
 - Map the existing flow and desired outcome before changing it. Preserve submission content and traceability across approved transformations.

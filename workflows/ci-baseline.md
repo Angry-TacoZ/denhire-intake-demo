@@ -9,9 +9,9 @@ For a maintained software repository:
 
 1. Configure GitHub Actions for pull requests and pushes to the default branch.
 2. Install dependencies using the repository's documented method.
-3. Use the application verifier documented in README once a stack and verifier exist. Include applicable lint, tests, type checks, build, and submission-flow smoke checks. This guidance-only bootstrap has no application verifier; do not copy the game build or deployment pipeline.
+3. Install locked dependencies with `npm ci`, then run `npm run verify` with Node.js 24. The Pages workflow verifies pull requests without deploying them and publishes pushes on `main` or the explicitly authorized demo-preview branch, `codex/intake-demo`.
 4. Keep ordinary CI deterministic and non-destructive.
 5. Avoid production credentials when tests and builds can run without them.
 6. When permissions allow it, require stable CI checks before merging.
-7. If CI is not configured or intentionally skipped, document why. This bootstrap has no remote or application stack, so hosted CI is unconfigured.
+7. If CI is not configured or intentionally skipped, document why. The public demo uses GitHub Actions and GitHub Pages. Production Netlify services remain unconfigured.
 8. Treat passing CI as evidence, not as an unqualified production-readiness claim.
