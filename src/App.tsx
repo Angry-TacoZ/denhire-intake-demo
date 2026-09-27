@@ -36,8 +36,9 @@ import {
   validateSubmission,
 } from "./domain";
 import type { Candidate } from "./domain";
+import ClassifierDemo from "./ClassifierDemo";
 
-type View = "workspace" | "talent" | "compare" | "architecture";
+type View = "workspace" | "talent" | "compare" | "architecture" | "classifier";
 const stages = [
   "Submission received",
   "Résumé stored",
@@ -64,7 +65,7 @@ function Tag({ children, tone = "" }: { children: ReactNode; tone?: string }) {
 export default function App() {
   const initialView = (): View => {
     const route = window.location.hash.replace("#/", "");
-    return ["talent", "compare", "architecture"].includes(route)
+    return ["talent", "compare", "architecture", "classifier"].includes(route)
       ? (route as View)
       : "workspace";
   };
@@ -269,6 +270,12 @@ export default function App() {
           <div className="nav-divider" />
           <span className="nav-caption">THE BIGGER PICTURE</span>
           <button
+            className={view === "classifier" ? "active" : ""}
+            onClick={() => navigate("classifier")}
+          >
+            <Sparkles size={18} /> Why a classifier?
+          </button>
+          <button
             className={view === "compare" ? "active" : ""}
             onClick={() => navigate("compare")}
           >
@@ -314,6 +321,7 @@ export default function App() {
                   talent: "Candidate experience",
                   compare: "Before & after",
                   architecture: "How it works",
+                  classifier: "Why a classifier?",
                 }[view]
               }
             </strong>
@@ -370,6 +378,17 @@ export default function App() {
                   See what changes <ArrowRight size={17} />
                 </button>
               </div>
+              <button
+                className="classifier-entry"
+                onClick={() => navigate("classifier")}
+              >
+                <Sparkles size={20} />
+                <span>
+                  <strong>Why add a classifier?</strong> Compare rules, meaning,
+                  and model costs in a three-step walkthrough.
+                </span>
+                <ArrowRight size={18} />
+              </button>
               <div className="metrics">
                 <div>
                   <span>Total candidates</span>
@@ -1051,6 +1070,7 @@ export default function App() {
           {view === "compare" && (
             <Comparison onStart={() => navigate("talent")} />
           )}
+          {view === "classifier" && <ClassifierDemo />}
           {view === "architecture" && (
             <Architecture
               active={activeNode}

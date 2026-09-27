@@ -4,9 +4,18 @@ Scope: public static presentation with fictional data, September 27, 2026. Statu
 
 ## Deterministic checks
 
-`npm.cmd run verify` runs 11 tests covering full, partial, empty, unrelated, and case-insensitive skill evidence; preferred-role independence; invalid fields and missing acknowledgement; duplicate email normalization without overwrite; new-record content preservation; receipt before processing; failure/retry; and preservation of shortlisted records. It also checks TypeScript, builds the application, and scans source/built output for the demo's no-credentials/no-network-API/no-persistent-storage contract.
+`npm.cmd run verify` runs 17 tests, including the original intake coverage for full, partial, empty, unrelated, and case-insensitive skill evidence; preferred-role independence; invalid fields and missing acknowledgement; duplicate email normalization without overwrite; new-record content preservation; receipt before processing; failure/retry; and preservation of shortlisted records. It also checks TypeScript, builds the application, and scans source/built output for the demo's no-credentials/no-network-API/no-persistent-storage contract.
 
-The fixed fixtures and assertions are in `tests/domain.test.ts`. All 11 passed locally. No cases were excluded. This is deterministic simulation validation, not a model-quality evaluation. There is no previous application baseline in this repository; the observed current-site email handoff is the comparison baseline. No conversion or efficiency improvement is claimed.
+The original intake fixtures and assertions are in `tests/domain.test.ts`. The classifier extension adds six tests in `tests/classifier.test.ts`; the canonical verifier now runs 17 tests, all passing locally. No cases were excluded. This is deterministic simulation validation, not a model-quality evaluation. The observed current-site email handoff is the intake comparison baseline; executable keyword and expanded-rule baselines are the classifier walkthrough's comparison. No measured conversion or model-quality improvement is claimed.
+
+## Classifier walkthrough extension
+
+- Verified the fixed synonym case changes from missing to present when expanded rules are enabled, while the context case still differs from the authored interpretation. Missing ownership visibly defers in the authored target.
+- Verified default input spend ($6.00 LLM, $3.12 hybrid), 100% escalation ($8.52 hybrid / 42% more), and a 100,000-candidate Sol comparison ($1,200.00 LLM, $145.20 hybrid). Changing comparisons and input length updates the results; reset restores assumptions.
+- Inspected 1440×1000 and 390×844 layouts, usable pointer controls, vertically stacked phone content, source disclosure, three-step navigation, restart, inbox entry, direct hash-route refresh, and zero horizontal overflow. This is phone-sized browser inspection, not physical-device testing.
+- No browser console errors or warnings observed. Sources and built output pass the no-credentials/no-network-API/no-persistent-storage guard. No added dependencies or paid calls.
+- Step navigation returns to the top so a presentation does not land midway down the next section. Existing intake logic is unchanged and its 11 regression tests still pass.
+- Model outputs, calibration, real extraction, and total operating savings remain NOT ASSESSED; see [comparison methodology](CLASSIFIER_DEMO.md).
 
 ## Browser checklist
 
@@ -33,3 +42,4 @@ The fixed fixtures and assertions are in `tests/domain.test.ts`. All 11 passed l
 | Real candidate intake | Not ready: no server authorization, storage, or privacy workflow |
 
 The build reports non-blocking Lucide `use client` directive warnings. This is a client-only Vite app with no React Server Components. No runtime impact was observed in the tested flows.
+

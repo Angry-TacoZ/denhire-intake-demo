@@ -4,6 +4,17 @@ An interactive, independent concept showing how DenHire could move from an email
 
 **[Open the demo](https://angry-tacoz.github.io/denhire-intake-demo/)** | **[Try the candidate form](https://angry-tacoz.github.io/denhire-intake-demo/#/talent)**
 
+**[Present the classifier use case](https://angry-tacoz.github.io/denhire-intake-demo/#/classifier)**: a three-step walkthrough of semantic decisions, estimated input costs, and the hybrid workflow.
+
+## Presenting the classifier opportunity
+
+1. Open **Why a classifier?** and choose **Different wording**. Turn on **Add aliases + simple exclusions** to show that improving rules solves some cases.
+2. Choose **Meaning without the label**, then **Missing ownership**. Explain the potential to recognize described work and defer when evidence is unclear. Classifier interpretations are authored teaching targets, not real Jev results.
+3. Choose **Explore the cost**. Change volume, the economical/general-purpose LLM, and escalation. At the defaults, estimated input spend is $6.00 for the economical LLM versus $3.12 for classifier plus 10% LLM escalation. At 100% escalation the hybrid costs more. These are input-only estimates, not a total operating-cost or model-quality benchmark.
+4. Finish at **See the workflow**: code validates and stores, a classifier could assess narrow evidence, and recruiters/LLMs handle review and conversation.
+
+Rates and exclusions are visible in the calculator. The [comparison notes](docs/CLASSIFIER_DEMO.md) preserve the fixed cases, rule limitations, arithmetic, and remaining evaluation work.
+
 All profiles and roles are fictional. The application runs in browser memory. It does not accept real applications, upload resumes, send email, call an AI provider, or connect to DenHire's systems. Refreshing restores the sample data.
 
 ## A two-minute walkthrough
@@ -26,7 +37,7 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Open the localhost URL printed by Vite. Hash routes (`#/talent`, `#/compare`, `#/architecture`) work on GitHub Pages without server rewrites. The proposed production route is `/talent` on the existing website.
+Open the localhost URL printed by Vite. Hash routes (`#/talent`, `#/compare`, `#/architecture`, `#/classifier`) work on GitHub Pages without server rewrites. The proposed production route is `/talent` on the existing website.
 
 ## Verification
 
@@ -34,13 +45,13 @@ Open the localhost URL printed by Vite. Hash routes (`#/talent`, `#/compare`, `#
 npm.cmd run verify
 ```
 
-This runs 11 deterministic domain tests, TypeScript checks, a production build, and a source/bundle guard against recognized credential patterns, network API calls, and persistent browser storage. Fonts are bundled locally. The scan is a narrow demo contract check, not a comprehensive security audit.
+This runs 17 deterministic tests, TypeScript checks, a production build, and a source/bundle guard against recognized credential patterns, network API calls, and persistent browser storage. Fonts are bundled locally. The scan is a narrow demo contract check, not a comprehensive security audit.
 
 Browser verification covers the presentation flows and responsive layouts. See [verification notes](docs/VERIFICATION.md). `npm.cmd audit --omit=dev` checks installed production dependencies separately.
 
 ## Matching and simulation
 
-Skill mentions are detected with case-insensitive keyword boundaries against three fixed example role briefs. The interface exposes the exact sample sentence and marks missing evidence as a question. This is neither an AI model nor a measure of ability, suitability, or hiring likelihood. Synonyms, negation, depth, recency, and real resume extraction are not evaluated.
+In the talent inbox, skill mentions are detected with case-insensitive keyword boundaries against three fixed example role briefs. The interface exposes the exact sample sentence and marks missing evidence as a question. This is neither an AI model nor a measure of ability, suitability, or hiring likelihood. The separate classifier walkthrough demonstrates limitations using fixed excerpts and an optional expanded rule baseline; neither view evaluates a real model or performs resume extraction.
 
 See [Jev research and responsibility split](docs/JEV.md) for the proposed decision-model integration.
 
