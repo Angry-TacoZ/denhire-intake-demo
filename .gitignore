@@ -1,0 +1,30 @@
+# Local agent state and verification artifacts
+.gitagent/
+.codex-artifacts/
+output/
+playwright-report/
+test-results/
+coverage/
+
+# Secrets; safe examples may be committed
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Private submission material; use synthetic or redacted fixtures in Git
+private-data/
+local-submissions/
+
+# Generated files, if used by the chosen stack
+node_modules/
+dist/
+build/
+.venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db

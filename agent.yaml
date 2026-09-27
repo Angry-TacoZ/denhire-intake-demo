@@ -1,0 +1,9 @@
+spec_version: "0.1.0"
+name: denhire-incoming-submission-overhaul
+version: 0.1.0
+description: Engineering agent for James's Denhire Incoming Submission Overhaul repository.
+skills:
+  - api-integration-security
+  - interaction-usability
+  - security-relevant-change
+  - visual-diagnosis
