@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   classifierCases,
   inputCostEstimate,
+  llmPrices,
   runEvidenceRules,
 } from "../src/classifier.ts";
 
@@ -57,24 +58,28 @@ test("rules handle empty input, word boundaries, case and multiple clauses", () 
   );
 });
 test("default economics compare equal input volumes and charge both calls for escalation", () => {
-  const result = inputCostEstimate(10000, 3, 2000, 0.1, 10);
-  assert.equal(result.decisions, 30000);
-  assert.equal(result.classifier, 2.52);
-  assert.equal(result.llm, 6);
-  assert.equal(result.hybrid, 3.12);
-  assert.ok(Math.abs(result.savingPercent! - 48) < 1e-10);
+  for (const model of llmPrices) {
+    const result = inputCostEstimate(10000, 3, 2000, model.input, 10);
+    assert.equal(result.decisions, 30000);
+    assert.equal(result.classifier, 2.52);
+    assert.equal(result.llm, 120);
+    assert.equal(result.hybrid, 14.52);
+    assert.ok(Math.abs(result.savings - 105.48) < 1e-10);
+    assert.ok(Math.abs(result.savingPercent! - 87.9) < 1e-10);
+  }
 });
 test("economics preserve zero use, scaling, no escalation and negative savings", () => {
-  const zero = inputCostEstimate(0, 3, 2000, 0.1, 10);
+  const zero = inputCostEstimate(0, 3, 2000, 2, 10);
   assert.equal(zero.hybrid, 0);
   assert.equal(zero.savingPercent, null);
-  const noFallback = inputCostEstimate(1000, 1, 1000, 0.1, 0);
+  const noFallback = inputCostEstimate(1000, 1, 1000, 2, 0);
   assert.equal(noFallback.hybrid, 0.042);
-  const scaled = inputCostEstimate(10000, 1, 1000, 0.1, 0);
+  const scaled = inputCostEstimate(10000, 1, 1000, 2, 0);
   assert.ok(Math.abs(scaled.hybrid - noFallback.hybrid * 10) < 1e-10);
-  const allFallback = inputCostEstimate(1000, 1, 1000, 0.1, 100);
+  const allFallback = inputCostEstimate(10000, 3, 2000, 2, 100);
   assert.ok(allFallback.savings < 0);
-  assert.ok(Math.abs(allFallback.savingPercent! + 42) < 1e-10);
+  assert.equal(allFallback.hybrid, 122.52);
+  assert.ok(Math.abs(allFallback.savingPercent! + 2.1) < 1e-10);
 });
 test("economics reject invalid assumptions instead of displaying fictional savings", () => {
   for (const args of [

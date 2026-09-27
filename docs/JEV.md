@@ -20,6 +20,7 @@ These are proposed question designs, not live model results. Noul's probability 
 4. Application code validates and stores the signals in `candidate_job_matches`, handles uncertainty and errors, and presents evidence to recruiters.
 5. Aaron could use a separate generative model or template for wording. Recruiters review decisions and outreach.
 
-The talent inbox uses transparent keyword matching and a follow-up template. The separate **Why a classifier?** walkthrough runs keyword and expanded rules on six fictional excerpts beside explicitly authored semantic targets. It includes adjustable input-price arithmetic using published TypeSafe and OpenAI rates, with exclusions and escalation visible. It is not a live Jev or LLM comparison. No SDK, credentials, requests, measured latency claims, or invented probabilities are included. See [comparison methodology](CLASSIFIER_DEMO.md).
+The talent inbox uses transparent keyword matching and a follow-up template. The separate **Why a classifier?** walkthrough runs keyword and expanded rules on six fictional excerpts beside explicitly authored semantic targets. It includes adjustable input-price arithmetic using published TypeSafe, Anthropic, and OpenAI rates, with exclusions and escalation visible. It is not a live Jev or LLM comparison. No SDK, credentials, requests, measured latency claims, or invented probabilities are included. See [comparison methodology](CLASSIFIER_DEMO.md).
 
 A real integration requires representative cases, a documented human baseline, quality and calibration checks, and agreed cost/privacy controls. Neither lower token prices nor the scripted examples establish production superiority.
+

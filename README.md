@@ -10,7 +10,7 @@ An interactive, independent concept showing how DenHire could move from an email
 
 1. Open **Why a classifier?** and choose **Different wording**. Turn on **Add aliases + simple exclusions** to show that improving rules solves some cases.
 2. Choose **Meaning without the label**, then **Missing ownership**. Explain the potential to recognize described work and defer when evidence is unclear. Classifier interpretations are authored teaching targets, not real Jev results.
-3. Choose **Explore the cost**. Change volume, the economical/general-purpose LLM, and escalation. At the defaults, estimated input spend is $6.00 for the economical LLM versus $3.12 for classifier plus 10% LLM escalation. At 100% escalation the hybrid costs more. These are input-only estimates, not a total operating-cost or model-quality benchmark.
+3. Choose **Explore the cost**. Change volume, Claude Sonnet 5 or GPT-6 Sol, and escalation. At the defaults, estimated input spend is $120.00 for either LLM versus $14.52 for classifier plus 10% LLM escalation. At 100% escalation the hybrid costs more. These are input-only estimates, not a total operating-cost or model-quality benchmark.
 4. Finish at **See the workflow**: code validates and stores, a classifier could assess narrow evidence, and recruiters/LLMs handle review and conversation.
 
 Rates and exclusions are visible in the calculator. The [comparison notes](docs/CLASSIFIER_DEMO.md) preserve the fixed cases, rule limitations, arithmetic, and remaining evaluation work.
@@ -68,3 +68,4 @@ Rollback: revert the faulty commit on the published branch and let the workflow 
 The GitAgent structure is adapted from Test Subject 01. Start with [AGENTS.md](AGENTS.md), [RULES.md](RULES.md), and [the project brief](docs/PROJECT_BRIEF.md). Reusable procedures and capabilities live in `workflows/` and `skills/`.
 
 The source site is [denhire.online](https://denhire.online/#contact). The planned service architecture follows the user-provided proposal; [Netlify Functions](https://docs.netlify.com/build/functions/background-functions/) and [storage documentation](https://docs.netlify.com/build/data-and-storage/overview/) are references for a future implementation, not services deployed by this demo.
+

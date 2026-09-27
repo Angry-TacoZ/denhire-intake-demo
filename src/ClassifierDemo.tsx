@@ -35,7 +35,7 @@ export default function ClassifierDemo() {
   const [volume, setVolume] = useState(10000);
   const [comparisons, setComparisons] = useState(3);
   const [tokens, setTokens] = useState(2000);
-  const [modelId, setModelId] = useState("luna");
+  const [modelId, setModelId] = useState("sonnet");
   const [escalation, setEscalation] = useState(10);
   const example = classifierCases[caseIndex];
   const ruleResult = runEvidenceRules(example.text, mode);
@@ -332,13 +332,22 @@ export default function ClassifierDemo() {
               </a>{" "}
               (= ${JEV_INPUT_RATE} / million).{" "}
               <a
+                href="https://platform.claude.com/docs/en/about-claude/pricing"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Anthropic standard input pricing
+              </a>
+              : Claude Sonnet 5 $2.00 / million.{" "}
+              <a
                 href="https://developers.openai.com/api/docs/pricing"
                 target="_blank"
                 rel="noreferrer"
               >
                 OpenAI standard short-context input prices
               </a>
-              : GPT-6 Luna $0.10 / million; GPT-6 Sol $2.00 / million.
+              : GPT-6 Sol $2.00 / million. Both estimates are equal at the same
+              input-token count; actual token counts can differ by provider.
             </p>
             <p>
               Input cost = candidates × role comparisons × input tokens ÷
@@ -364,7 +373,7 @@ export default function ClassifierDemo() {
                 setVolume(10000);
                 setComparisons(3);
                 setTokens(2000);
-                setModelId("luna");
+                setModelId("sonnet");
                 setEscalation(10);
               }}
             >
