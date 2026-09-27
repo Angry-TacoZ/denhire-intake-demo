@@ -7,7 +7,7 @@ description: Run safe, scope-appropriate project checks and report their evidenc
 
 1. Identify checks applicable to the changed behavior.
 2. Run targeted checks during implementation.
-3. For the guidance-only bootstrap, validate the manifest and skill references with OpenGAP, inspect internal links, check ignore rules, and run `git diff --check` (also `--cached` for staged files). After stack selection, document a canonical application verifier in README and run it after substantial application or behavior changes.
+3. Run `npm.cmd run verify`: deterministic domain tests, TypeScript checking, production build, and a source/build scan for recognized credential patterns, network API calls, and persistent browser storage. Inspect changed user flows in a browser on desktop and phone-sized viewports. This is a static demo; never claim these checks verify the proposed backend.
 4. Run the full verifier before opening a pull request, deploying, publishing, or making a readiness claim.
 5. Do not treat a dry run as evidence.
 6. Confirm the run is non-destructive and does not perform unauthorized paid calls, live mutations, deployment, or publishing.
