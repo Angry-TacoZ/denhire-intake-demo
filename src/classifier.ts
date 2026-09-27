@@ -96,7 +96,7 @@ export function runEvidenceRules(text: string, mode: RuleMode): EvidenceLabel {
 // Input-only comparison: no inference about Jev's other billing components.
 export const JEV_INPUT_RATE = 0.042;
 export const llmPrices = [
-  { id: "sonnet", label: "Claude Sonnet 5", input: 2.0 },
+  { id: "fable", label: "Claude Fable 5.1", input: 10.0 },
   { id: "sol", label: "GPT-6 Sol · general purpose", input: 2.0 },
 ];
 export function inputCostEstimate(

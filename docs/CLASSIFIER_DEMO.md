@@ -19,7 +19,7 @@ The expanded rule demonstrates a real improvement and retains known failures. It
 
 ## Cost arithmetic
 
-Prices checked September 27, 2026: [TypeSafe](https://typesafe.ai/) advertises $42 per billion input tokens, or $0.042 per million. [Anthropic](https://platform.claude.com/docs/en/about-claude/pricing) lists Claude Sonnet 5 standard uncached input at $2.00/million. [OpenAI](https://developers.openai.com/api/docs/pricing) lists GPT-6 Sol standard short-context uncached input at $2.00/million. Sonnet 5 is the default. These models have equal estimates at equal token counts; this does not imply identical tokenization or performance.
+Prices checked September 27, 2026: [TypeSafe](https://typesafe.ai/) advertises $42 per billion input tokens, or $0.042 per million. [Anthropic](https://platform.claude.com/docs/en/about-claude/pricing) lists Claude Fable 5.1 standard uncached input at $10.00/million. [OpenAI](https://developers.openai.com/api/docs/pricing) lists GPT-6 Sol standard short-context uncached input at $2.00/million. Fable 5.1 is the default for the presentation. Its higher price illustrates a possible routing comparison, not a claim that it is the optimal generative model for this narrow question. These models can tokenize identical text differently; neither rate implies a quality result.
 
 Compare the same workload remaining after shared deterministic validation. All comparisons go to the classifier in the hybrid path, with a user-selected proportion also going to the LLM. A comparison includes all decision-question overhead in the assumed token count. Equal token counts across providers are an estimate, not measured usage.
 
@@ -32,7 +32,7 @@ hybrid input cost = classifier input cost + LLM input cost * escalation fraction
 saving = LLM input cost - hybrid input cost
 ```
 
-Defaults: 10,000 candidates, 3 comparisons, 2,000 tokens, Claude Sonnet 5, 10% escalation. Results: $120 LLM input versus $14.52 hybrid input ($2.52 + $12.00), a $105.48 / 87.9% reduction. GPT-6 Sol yields the same estimate. At 100% escalation the hybrid costs $122.52, or 2.1% more. Negative savings are intentionally displayed. Rules-only model fees are zero but do not imply equivalent semantic coverage or free engineering/compute.
+Defaults: 10,000 candidates, 3 comparisons, 2,000 tokens, Claude Fable 5.1, 10% escalation. Results: $600 LLM input versus $62.52 hybrid input ($2.52 + $60.00), a $537.48 / 89.6% reduction. GPT-6 Sol gives $120 versus $14.52 ($2.52 + $12.00), a $105.48 / 87.9% reduction. At 100% escalation Fable's hybrid costs $602.52 (0.42% more) and Sol's costs $122.52 (2.1% more). Negative savings are intentionally displayed. Rules-only model fees are zero but do not imply equivalent semantic coverage or free engineering/compute.
 
 Output charges, caches, batch discounts, retries, extraction, infrastructure, outreach, reviewer labor, and development costs are excluded. We did not confirm a total Jev billing formula or make paid calls. The UI explicitly labels this **input spend only**. Prices can change; verify them before using this as a budget.
 

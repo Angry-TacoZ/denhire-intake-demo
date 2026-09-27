@@ -35,7 +35,7 @@ export default function ClassifierDemo() {
   const [volume, setVolume] = useState(10000);
   const [comparisons, setComparisons] = useState(3);
   const [tokens, setTokens] = useState(2000);
-  const [modelId, setModelId] = useState("sonnet");
+  const [modelId, setModelId] = useState("fable");
   const [escalation, setEscalation] = useState(10);
   const example = classifierCases[caseIndex];
   const ruleResult = runEvidenceRules(example.text, mode);
@@ -318,7 +318,7 @@ export default function ClassifierDemo() {
               </div>
               <p className="classifier-footnote">
                 {cost.savings >= 0
-                  ? "At modest volume, the dollar savings may be small. Quality and review effort still matter."
+                  ? "Input-price savings do not establish equal quality or lower total operating cost. Review effort still matters."
                   : "High escalation can erase the savings. Test quality before choosing a routing policy."}
               </p>
             </div>
@@ -338,7 +338,7 @@ export default function ClassifierDemo() {
               >
                 Anthropic standard input pricing
               </a>
-              : Claude Sonnet 5 $2.00 / million.{" "}
+              : Claude Fable 5.1 $10.00 / million.{" "}
               <a
                 href="https://developers.openai.com/api/docs/pricing"
                 target="_blank"
@@ -346,8 +346,8 @@ export default function ClassifierDemo() {
               >
                 OpenAI standard short-context input prices
               </a>
-              : GPT-6 Sol $2.00 / million. Both estimates are equal at the same
-              input-token count; actual token counts can differ by provider.
+              : GPT-6 Sol $2.00 / million. Actual token counts can differ by
+              provider even when the same text is supplied.
             </p>
             <p>
               Input cost = candidates × role comparisons × input tokens ÷
@@ -373,7 +373,7 @@ export default function ClassifierDemo() {
                 setVolume(10000);
                 setComparisons(3);
                 setTokens(2000);
-                setModelId("sonnet");
+                setModelId("fable");
                 setEscalation(10);
               }}
             >
